@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import uuid from 'uuid';
 
 const rootReducer = combineReducers({
   authors: authorsReducer, 
@@ -31,6 +32,8 @@ function authorsReducer(state = [], action) {
     case "REMOVE_AUTHOR":
       idx = state.findIndex(author => author.id  === action.id)
       return [...state.slice(0, idx), ...state.slice(idx + 1)];
+      
+    
  
     default:
       return state;
